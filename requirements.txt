@@ -1,5 +1,4 @@
 pymysql
 pandas
-streamlit
-os
+streamlit>=1.40.1
 dotenv
