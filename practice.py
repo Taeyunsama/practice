@@ -1,8 +1,18 @@
 import streamlit as st
 import pymysql as psql
 import pandas as pd
+import os
+from dotenv import load_dotenv
 
-Conn = psql.connect(user='root', passwd='ma29mi',host='localhost',db='insu',charset='utf8')
+# .env 파일에서 환경 변수 로드
+load_dotenv()
+
+# 환경 변수에서 값 가져오기
+user = os.getenv('DB_USER')
+password = os.getenv('DB_PASSWORD')
+host = os.getenv('DB_HOST')
+db = os.getenv('DB_NAME')
+Conn = psql.connect(user=user, passwd=password,host=host,db=db,charset='utf8')
 
 cursor = Conn.cursor(psql.cursors.DictCursor)
 
